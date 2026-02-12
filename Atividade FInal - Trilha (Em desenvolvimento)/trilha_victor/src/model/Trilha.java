@@ -9,16 +9,23 @@ public class Trilha implements Subject {
 
     private String nome;
     private LocalDate ultimaAtualizacao;
-    private ArrayList<Observer> observers;
+    private ArrayList<Observer> observers = new ArrayList<>();
 
     public Trilha(String nome) {
         this.nome = nome;
         this.ultimaAtualizacao = LocalDate.now();
-        observers = new ArrayList<>();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDate getUltimaAtualizacao() {
+        return ultimaAtualizacao;
     }
 
     public void atualizarTrilha() {
-        ultimaAtualizacao = LocalDate.now();
+        this.ultimaAtualizacao = LocalDate.now();
         notificarObservers();
     }
 
@@ -35,7 +42,7 @@ public class Trilha implements Subject {
     @Override
     public void notificarObservers() {
         for (Observer o : observers) {
-            o.atualizar("A trilha " + nome + " foi atualizada!");
+            o.atualizar("A trilha '" + nome + "' foi atualizada em " + ultimaAtualizacao + "!");
         }
     }
 }
