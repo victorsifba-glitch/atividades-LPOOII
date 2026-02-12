@@ -2,15 +2,19 @@ package model;
 
 import java.util.ArrayList;
 import observer.Observer;
+import model.Trilha;
 
 public class Usuario implements Observer {
 
     private String nome;
-    private ArrayList<Trilha> trilhasFavoritas;
+    private ArrayList<Trilha> trilhasFavoritas = new ArrayList<>();
 
     public Usuario(String nome) {
         this.nome = nome;
-        trilhasFavoritas = new ArrayList<>();
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void adicionarFavorita(Trilha trilha) {
@@ -20,6 +24,6 @@ public class Usuario implements Observer {
 
     @Override
     public void atualizar(String mensagem) {
-        System.out.println("Usuário " + nome + " recebeu notificação: " + mensagem);
+        System.out.println("Notificação para " + nome + ": " + mensagem);
     }
 }
