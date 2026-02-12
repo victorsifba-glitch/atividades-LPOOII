@@ -7,13 +7,9 @@ import model.Trilha;
 public class BaseDados {
 
     private static BaseDados instancia;
-
-    private ArrayList<Usuario> Usuarios;
-    private ArrayList<Trilha> Trilhas;
-
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ArrayList<Trilha> trilhas = new ArrayList<>();
     private BaseDados() {
-        Usuarios = new ArrayList<>();
-        Trilhas = new ArrayList<>();
     }
 
     public static BaseDados getInstance() {
@@ -22,20 +18,19 @@ public class BaseDados {
         }
         return instancia;
     }
-
     public ArrayList<Usuario> getUsuarios() {
-        return Usuarios;
+        return usuarios;
     }
 
     public ArrayList<Trilha> getTrilhas() {
-        return Trilhas;
+        return trilhas;
     }
 
     public void adicionarUsuario(Usuario usuario) {
-        Usuarios.add(usuario);
+        usuarios.add(usuario);
     }
 
     public void adicionarTrilha(Trilha trilha) {
-        Trilhas.add(trilha);
+        trilhas.add(trilha);
     }
 }
